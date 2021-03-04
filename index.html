@@ -1,0 +1,132 @@
+<!DOCTYPE HTML> 
+<html> 
+<head> 
+
+<style> 
+body{ 
+    text-align: center; 
+     background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+    background-image: url('media/backgroundImage.jpg'); 
+  font-family: sans-serif; 
+  font-weight: 100; 
+} 
+#clockdiv div > span{ 
+    padding: 35px; 
+    border-radius: 1px; 
+    width: 3vw;
+    background: #3c464b; 
+    display: inline-block; 
+} 
+.smalltext{ 
+    padding-top: 15px; 
+    font-size: 24px; 
+    padding-bottom: 10px;
+} 
+
+
+h1{ 
+  color: #396; 
+  font-weight: 100; 
+  font-size: 40px; 
+  margin: 40px 0px 20px; 
+} 
+ #clockdiv{ 
+    font-family: sans-serif; 
+    color: #fff; 
+    display: inline-block; 
+    font-weight: 100; 
+    text-align: center; 
+    font-size: 30px; 
+} 
+#clockdiv >div{ 
+    padding: 20px; 
+    border-radius: 3px; 
+    opacity: 0.8;
+    width: 120px;
+
+    background: #46a8bc; 
+    display: inline-block; 
+} 
+
+
+#bluediv{
+
+  padding: 25px; 
+    border-radius: 3px; 
+    opacity: 0.8;
+font-family: sans-serif; 
+    color: #fff; 
+
+    display: inline-block; 
+    font-weight: 100; 
+    background: #46a8bc; 
+        width: 600px;
+        height: 120px;
+
+}
+</style> 
+</head> 
+<body> 
+
+
+  <div id="bluediv" style="display: inline-flex; position: absolute; top: 250px; right: 3;"> 
+   
+  <div><p style="font-size: 60px; margin-top: 0px;"> Siemens <span style="font-size: 20px; padding-left: 19px;"> March 31,2021 12:00:01</span><br><span style="font-size: 25px; font-weight: bold; margin-left: -211px; margin-top: -10px">New Organization Day 1</span> </p></div>
+
+</div> 
+  
+ 
+<div id="clockdiv" style="display: inline-flex; position: absolute; top: 440px; right: 5; "> 
+  <div>  
+     <div class="smalltext">Days</div> 
+    <span class="days" id="day"></span> 
+   
+  </div> 
+  <div> 
+    <div class="smalltext">Hours</div> 
+    <span class="hours" id="hour"></span> 
+    
+  </div> 
+  <div> 
+    <div class="smalltext">Minutes</div> 
+    <span class="minutes" id="minute"></span> 
+    
+  </div> 
+  <div> 
+      <div class="smalltext">Seconds</div> 
+    <span class="seconds" id="second"></span> 
+  
+  </div> 
+</div> 
+  
+<p id="demo"></p> 
+  
+<script> 
+  
+var deadline = new Date("march 31, 2021 12:00:01").getTime(); 
+  
+var x = setInterval(function() { 
+  
+var now = new Date().getTime(); 
+var t = deadline - now; 
+var days = Math.floor(t / (1000 * 60 * 60 * 24)); 
+var hours = Math.floor((t%(1000 * 60 * 60 * 24))/(1000 * 60 * 60)); 
+var minutes = Math.floor((t % (1000 * 60 * 60)) / (1000 * 60)); 
+var seconds = Math.floor((t % (1000 * 60)) / 1000); 
+document.getElementById("day").innerHTML =days ; 
+document.getElementById("hour").innerHTML =hours; 
+document.getElementById("minute").innerHTML = minutes;  
+document.getElementById("second").innerHTML =seconds;  
+if (t < 0) { 
+        clearInterval(x); 
+        document.getElementById("demo").innerHTML = "TIME UP"; 
+        document.getElementById("day").innerHTML ='0'; 
+        document.getElementById("hour").innerHTML ='0'; 
+        document.getElementById("minute").innerHTML ='0' ;  
+        document.getElementById("second").innerHTML = '0'; } 
+}, 1000); 
+</script> 
+</body> 
+</html> 
